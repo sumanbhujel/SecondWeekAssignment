@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class CalculatorOneActivity extends AppCompatActivity implements View.OnClickListener{
     Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnAdd,btnSubtract,btnMultiply,btnDivide;
@@ -15,9 +14,6 @@ public class CalculatorOneActivity extends AppCompatActivity implements View.OnC
     String displayNum = "";
     String op;
     int num1,num2,res;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
