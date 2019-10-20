@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TaskTwoActivity"></activity>
-        <activity android:name=".TaskThreeActivity" />
-        <activity android:name=".TaskOneActivity" />
-        <activity android:name=".RelativeActivity" />
+        <activity android:name=".TaskThreeActivity" ></activity>
+        <activity android:name=".TaskOneActivity" ></activity>
+        <activity android:name=".RelativeActivity" ></activity>
         <activity android:name=".TaskFourActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
