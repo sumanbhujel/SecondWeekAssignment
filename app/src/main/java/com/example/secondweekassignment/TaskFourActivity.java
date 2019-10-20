@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CalculatorOneActivity extends AppCompatActivity implements View.OnClickListener {
+public class TaskFourActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnClear, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnEqual, btnAdd, btnSubtract, btnMultiply, btnDivide;
     EditText editText;
     String displayNum = "";
@@ -18,7 +18,7 @@ public class CalculatorOneActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculator_one);
+        setContentView(R.layout.activity_task_four);
 
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
