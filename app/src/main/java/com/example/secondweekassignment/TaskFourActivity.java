@@ -1,19 +1,20 @@
 package com.example.secondweekassignment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class TaskFourActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnClear, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnEqual, btnAdd, btnSubtract, btnMultiply, btnDivide;
     EditText editText;
     String displayNum = "";
     String op;
-    int num1, num2, res;
+    float num1, num2, res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,31 +115,51 @@ public class TaskFourActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.btnPlus:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                op = "+";
+                if (TextUtils.isEmpty(editText.getText())) {
+                    editText.setError("Enter a number first");
+                } else {
+                    editText.setError(null);
+                    num1 = Float.parseFloat(displayNum);
+                    displayNum = "";
+                    op = "+";
+                }
                 break;
 
             case R.id.btnMinus:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                op = "-";
+                if (TextUtils.isEmpty(editText.getText())) {
+                    editText.setError("Enter a number");
+                } else {
+                    editText.setError(null);
+                    num1 = Float.parseFloat(displayNum);
+                    displayNum = "";
+                    op = "-";
+                }
                 break;
 
             case R.id.btnMultiply:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                op = "*";
+                if (TextUtils.isEmpty(editText.getText())) {
+                    editText.setError("enter number");
+                } else {
+                    editText.setError(null);
+                    num1 = Float.parseFloat(displayNum);
+                    displayNum = "";
+                    op = "*";
+                }
                 break;
 
             case R.id.btnDivide:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                op = "/";
+                if (TextUtils.isEmpty(editText.getText())) {
+                    editText.setError("enter number");
+                } else {
+                    editText.setError(null);
+                    num1 = Float.parseFloat(displayNum);
+                    displayNum = "";
+                    op = "/";
+                }
                 break;
 
             case R.id.btnEqual:
-                num2 = Integer.parseInt(displayNum);
+                num2 = Float.parseFloat(displayNum);
                 res = getResult(op, num1, num2);
                 editText.setText(String.valueOf(res));
                 displayNum = "";
@@ -146,7 +167,7 @@ public class TaskFourActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private int getResult(String op, int n1, int n2) {
+    private float getResult(String op, float n1, float n2) {
         switch (op) {
             case "+":
                 return n1 + n2;
@@ -158,7 +179,11 @@ public class TaskFourActivity extends AppCompatActivity implements View.OnClickL
                 return n1 * n2;
 
             case "/":
-                return n1 / n2;
+                if (num2 == 0) {
+                    Toast.makeText(this, "Cannot divide 0!", Toast.LENGTH_SHORT).show();
+                } else {
+                    return n1 / n2;
+                }
 
             default:
                 return 0;

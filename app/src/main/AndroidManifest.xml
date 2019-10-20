@@ -13,13 +13,14 @@
         <activity android:name=".TaskTwoActivity"></activity>
         <activity android:name=".TaskThreeActivity" ></activity>
         <activity android:name=".TaskOneActivity" ></activity>
-        <activity android:name=".RelativeActivity" ></activity>
-        <activity android:name=".TaskFourActivity">
+        <activity android:name=".RelativeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".TaskFourActivity">
         </activity>
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".MainActivity" />

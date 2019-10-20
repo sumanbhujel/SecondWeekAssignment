@@ -29,6 +29,8 @@ public class TaskTwoActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+
+
         switch (view.getId()) {
             case R.id.rbTiger:
                 imageView.setImageResource(R.drawable.tiger);
