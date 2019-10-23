@@ -10,18 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TaskTwoActivity"></activity>
-        <activity android:name=".TaskThreeActivity" ></activity>
-        <activity android:name=".TaskOneActivity" ></activity>
-        <activity android:name=".RelativeActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ShowActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".RegdataActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".TaskFourActivity">
+        <activity android:name=".TaskTwoActivity" />
+        <activity android:name=".TaskThreeActivity" />
+        <activity android:name=".TaskOneActivity" />
+        <activity android:name=".RelativeActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name=".TaskFourActivity" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".MainActivity" />
     </application>
