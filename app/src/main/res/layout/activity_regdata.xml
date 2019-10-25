@@ -72,7 +72,7 @@
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/pradesh"
+
         android:textColor="#9acd32"
         style="@style/formStyle" />
 
