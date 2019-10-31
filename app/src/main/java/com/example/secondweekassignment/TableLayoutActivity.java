@@ -106,6 +106,13 @@ public class TableLayoutActivity extends AppCompatActivity
             Toast.makeText(this, "Please select country", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        if (spinner.getSelectedItem().toString().trim().equals("Please Select Country")) {
+            Toast.makeText(this, "Please Select Country", Toast.LENGTH_SHORT).show();
+            spinner.setFocusable(true);
+            return false;
+        }
+
         if(TextUtils.isEmpty(dob)){
             editTextD.setError("Enter dob");
             editTextD.requestFocus();
@@ -133,6 +140,7 @@ public class TableLayoutActivity extends AppCompatActivity
             return false;
         }
 
+        
         return true;
     }
 }

@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+
 
 public class LayoutsActivity extends AppCompatActivity implements View.OnClickListener {
 
     //object
-    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl;
+    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl, btnForm, btnStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,8 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         buttonCl = findViewById(R.id.btnCl);
         buttonTl = findViewById(R.id.btnTl);
         buttonFl = findViewById(R.id.btnFl);
+        btnForm = findViewById(R.id.btnForm);
+        btnStudent = findViewById(R.id.btnStudent);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -32,6 +34,8 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         buttonRl.setOnClickListener(this);
         buttonGl.setOnClickListener(this);
         buttonLl.setOnClickListener(this);
+        btnForm.setOnClickListener(this);
+        btnStudent.setOnClickListener(this);
 
     }
 
@@ -63,9 +67,13 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(this, RelativeActivity.class);
             startActivity(intent);
         }
-
-
-
-
+        if(view.getId() == R.id.btnForm){
+            Intent intent = new Intent(this, RegdataActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.btnStudent){
+            Intent intent = new Intent(this, ShowActivity.class);
+            startActivity(intent);
+        }
     }
 }

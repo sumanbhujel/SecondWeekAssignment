@@ -27,7 +27,7 @@
         android:layout_gravity="center"/>
 
     <TextView
-        android:id="@+id/pradesh"
+        android:id="@+id/state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"

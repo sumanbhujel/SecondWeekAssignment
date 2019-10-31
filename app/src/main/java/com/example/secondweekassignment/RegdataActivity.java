@@ -23,6 +23,7 @@ public class RegdataActivity extends AppCompatActivity {
     Spinner spinner;
     CheckBox cbM, cbD, cbO;
     Button button;
+    String[] hob = new String[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,9 @@ public class RegdataActivity extends AppCompatActivity {
         cbO = findViewById(R.id.chkBox3);
         button = findViewById(R.id.btnSubmit);
 
+        onCbSelect();
+        onSpinnerSelect();
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -53,56 +57,97 @@ public class RegdataActivity extends AppCompatActivity {
             }
         });
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name, state, hob;
+                name = editText.getText().toString();
+                state = spinner.getSelectedItem().toString();
+                String r_value = ((RadioButton) findViewById(rgG.getCheckedRadioButtonId()))
+                        .getText().toString();
+
+                hob = editText.getText().toString();
+                Intent intent = new Intent(RegdataActivity.this, ShowActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("state", state);
+                intent.putExtra("hob", hob);
+                intent.putExtra("radio_value",r_value);
+                startActivity(intent);
+            }
+        });
+
+        rgG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.btnMale) {
+                    Toast.makeText(RegdataActivity.this, "Male", Toast.LENGTH_SHORT).show();
+                }
+                if (i == R.id.btnFemale) {
+                    Toast.makeText(RegdataActivity.this, "Female", Toast.LENGTH_SHORT).show();
+                }
+
+                if (i == R.id.btnOthers) {
+                    Toast.makeText(RegdataActivity.this, "Others", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void onCbSelect() {
+
         cbM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    Toast.makeText(RegdataActivity.this, "music checked", Toast.LENGTH_SHORT).show();
-                    //hob[0]=cbM.getText().toString();
+                    hob[0] = cbM.getText().toString();
+
 
                 } else {
-                    //hob[0] = "";
-                    Toast.makeText(RegdataActivity.this, "music uncheked", Toast.LENGTH_SHORT).show();
+                    hob[0] = "";
                 }
             }
         });
+
         cbD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    Toast.makeText(RegdataActivity.this, "dance checked", Toast.LENGTH_SHORT).show();
-
+                    hob[1] = cbD.getText().toString();
                 } else {
-                    Toast.makeText(RegdataActivity.this, "dance uncheked", Toast.LENGTH_SHORT).show();
+                    hob[1] = "";
                 }
             }
         });
+
         cbO.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    Toast.makeText(RegdataActivity.this, "Others checked", Toast.LENGTH_SHORT).show();
-
+                    hob[2] = cbO.getText().toString();
                 } else {
-                    Toast.makeText(RegdataActivity.this, "others uncheked", Toast.LENGTH_SHORT).show();
+                    hob[2] = "";
                 }
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
+    }
+
+
+    private void onSpinnerSelect() {
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                String name, pradesh, hob;
-                name = editText.getText().toString();
-                pradesh = editText.getText().toString();
-                hob = editText.getText().toString();
-                Intent intent = new Intent(RegdataActivity.this, RegisterActivity.class);
-                intent.putExtra("name", name);
-                intent.putExtra("pradesh", pradesh);
-                intent.putExtra("hob", hob);
-                startActivity(intent);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(RegdataActivity.this, adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(RegdataActivity.this, "Select One", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 }

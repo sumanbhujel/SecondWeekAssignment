@@ -62,5 +62,19 @@
         style="@style/btn_Style"
         android:background="@drawable/btn_background"
         android:text="Frame Layout"/>
+    <Button
+        android:id="@+id/btnForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/btn_Style"
+        android:background="@drawable/btn_background"
+        android:text="Basic Form"/>
+    <Button
+        android:id="@+id/btnStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/btn_Style"
+        android:background="@drawable/btn_background"
+        android:text="Student List"/>
 
 </LinearLayout>
