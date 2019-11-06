@@ -1,6 +1,8 @@
 package com.example.secondweekassignment.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     //property
     private String name;

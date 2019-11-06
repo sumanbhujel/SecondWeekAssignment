@@ -3,6 +3,7 @@ package com.example.secondweekassignment;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.secondweekassignment.model.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -48,7 +50,7 @@ public class TableLayoutActivity extends AppCompatActivity
             calendar.set(Calendar.YEAR, i);
             calendar.set(Calendar.MONTH, i1);
             calendar.set(Calendar.DAY_OF_MONTH, i2);
-            String mydateFormat = "dd-MM-y";
+            String mydateFormat = "y-MM-dd";
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(mydateFormat, Locale.getDefault());
             editTextD.setText(simpleDateFormat.format(calendar.getTime()));
         }
@@ -132,6 +134,13 @@ public class TableLayoutActivity extends AppCompatActivity
         email = editTextE.getText().toString();
         phone = editTextP.getText().toString();
 
+
+        if (view.getId() == R.id.etDate) {
+            new DatePickerDialog(this, mydatepicker, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+        }
+
         if (view.getId() == R.id.btnSubmit) {
             if (validate()) {
                 userList.add(new User(name, gender, country, dob, email, phone));
@@ -141,27 +150,33 @@ public class TableLayoutActivity extends AppCompatActivity
 
         if (view.getId() == R.id.btnView) {
             //for all user object in userlist
-            for (User user : userList) {
+            /*for (User user : userList) {
                 Log.d("Name: ", user.getName());
                 Log.d("Gender: ", user.getGender());
                 Log.d("Country: ", user.getCountry());
                 Log.d("Date of Birth: ", user.getDob());
                 Log.d("Email: ", user.getEmail());
                 Log.d("Phone: ", user.getPhone());
-            }
+            }*/
             //data persistency is needed to store data
 
+            Intent intent = new Intent(this,UserListView.class);
+            //serializable(interface ) = object lai byte string ma convert garcha
+            intent.putExtra("allusers",(Serializable) userList);
+            startActivity(intent);
+
         }
-
-        if (view.getId() == R.id.etDate) {
-            new DatePickerDialog(this, mydatepicker, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH)).show();
-
-        }
-
     }
 
     private boolean validate() {
+        Calendar minAge = Calendar.getInstance();
+        minAge.add(Calendar.YEAR,-18);
+
+        if(minAge.before((dob))){
+            Toast.makeText(this, "Age should be 18+", Toast.LENGTH_SHORT).show();
+        }
+
+
         if (TextUtils.isEmpty(name)) {
             editTextN.setError("Enter Name");
             editTextN.requestFocus();
@@ -187,6 +202,7 @@ public class TableLayoutActivity extends AppCompatActivity
             editTextD.requestFocus();
             return false;
         }
+
         if (TextUtils.isEmpty(email)) {
             editTextE.setError("Enter Email");
             editTextE.requestFocus();
