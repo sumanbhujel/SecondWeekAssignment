@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserDetailActivity"></activity>
+        <activity android:name=".RecyclerViewActivity"></activity>
+        <activity android:name=".UserDetailActivity" />
         <activity android:name=".UserListView" />
         <activity android:name=".FrameLayoutActivity" />
         <activity android:name=".TableLayoutActivity" />

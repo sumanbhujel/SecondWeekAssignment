@@ -11,7 +11,7 @@ import android.widget.Button;
 public class LayoutsActivity extends AppCompatActivity implements View.OnClickListener {
 
     //object
-    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl, btnForm, btnStudent;
+    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl, btnForm, btnRv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         buttonTl = findViewById(R.id.btnTl);
         buttonFl = findViewById(R.id.btnFl);
         btnForm = findViewById(R.id.btnForm);
-        btnStudent = findViewById(R.id.btnStudent);
+        btnRv = findViewById(R.id.btnRecyclerView);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -35,7 +35,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         buttonGl.setOnClickListener(this);
         buttonLl.setOnClickListener(this);
         btnForm.setOnClickListener(this);
-        btnStudent.setOnClickListener(this);
+        btnRv.setOnClickListener(this);
 
     }
 
@@ -71,8 +71,8 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(this, RegdataActivity.class);
             startActivity(intent);
         }
-        if(view.getId() == R.id.btnStudent){
-            Intent intent = new Intent(this, ShowActivity.class);
+        if(view.getId() == R.id.btnRecyclerView){
+            Intent intent = new Intent(this, RecyclerViewActivity.class);
             startActivity(intent);
         }
     }

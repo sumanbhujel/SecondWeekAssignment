@@ -10,7 +10,7 @@ public class User implements Serializable {
     private String country;
     private String dob;
     private String email;
-    private  String phone;
+    private String phone;
 
     //methods
     public User(String name, String gender, String country, String dob, String email, String phone) {
