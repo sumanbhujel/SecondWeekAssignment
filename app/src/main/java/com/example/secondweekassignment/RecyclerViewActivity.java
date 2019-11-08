@@ -1,6 +1,7 @@
 package com.example.secondweekassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,15 +25,22 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rvFoods);
 
-        foods.add(new Food( "Mo:Mo", "Chicken","Rs.150",R.drawable.momo));
-        foods.add(new Food( "Chowmein", "Buff","Rs.140",R.drawable.chowmein));
-        foods.add(new Food( "Fried Rice", "Chicken","Rs.160",R.drawable.friedrice));
+        foods.add(new Food( "Mo:Mo", "Chicken","Rs.120",R.drawable.momo));
+        foods.add(new Food( "Chowmein", "Buff","Rs.110",R.drawable.chowmein));
+        foods.add(new Food( "Fried Rice", "Chicken","Rs.130",R.drawable.friedrice));
 
+        foods.add(new Food( "Pizza", "Mixed","Rs.200",R.drawable.momo));
+        foods.add(new Food( "Burger", "Chicken Crunchy","Rs.140",R.drawable.chowmein));
+        foods.add(new Food( "Choupsy", "American","Rs.150",R.drawable.friedrice));
 
         MyRvFoodAdapter adapter = new MyRvFoodAdapter(foods);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        //recyclerView.setLayoutManager(layoutManager);
+
+        RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
         recyclerView.setAdapter(adapter);
 
 

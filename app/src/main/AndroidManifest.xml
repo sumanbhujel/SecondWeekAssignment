@@ -10,17 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerViewActivity"></activity>
-        <activity android:name=".UserDetailActivity" />
-        <activity android:name=".UserListView" />
-        <activity android:name=".FrameLayoutActivity" />
-        <activity android:name=".TableLayoutActivity" />
-        <activity android:name=".LayoutsActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".UserDetailActivity" />
+        <activity android:name=".UserListView" />
+        <activity android:name=".FrameLayoutActivity" />
+        <activity android:name=".TableLayoutActivity" />
+        <activity android:name=".LayoutsActivity">
         </activity>
         <activity android:name=".ShowActivity" />
         <activity android:name=".RegdataActivity" />

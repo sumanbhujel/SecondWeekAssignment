@@ -26,7 +26,7 @@ public class MyRvFoodAdapter extends RecyclerView.Adapter<MyRvFoodAdapter.MyHold
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //layout bind garne
+        //layout bind garne...inflater le
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.layout_food_rv, parent, false);
         MyHolder myHolder = new MyHolder(view);
