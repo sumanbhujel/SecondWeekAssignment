@@ -12,7 +12,8 @@ import com.example.secondweekassignment.fragments.ExampleFragment;
 import com.example.secondweekassignment.fragments.SecondFragment;
 
 public class FragmentActivity extends AppCompatActivity {
-    Button btnF, btnS;
+    Button btnF;
+    Boolean check=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,23 +21,40 @@ public class FragmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragment);
 
         btnF = findViewById(R.id.btnFirstFrag);
-        btnS = findViewById(R.id.btnSecondFrag);
+        //btnS = findViewById(R.id.btnSecondFrag);
+
+
 
 
 
         btnF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fragment manage garna frag manager
-                FragmentManager fm = getSupportFragmentManager();
-                //fragment lyaudai rakhdai garna transaction.
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fragHolder, new ExampleFragment());
-                ft.commit();
+                if(check){
+                    //fragment manage garna frag manager
+                    FragmentManager fm = getSupportFragmentManager();
+                    //fragment lyaudai rakhdai garna transaction.
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.fragHolder, new ExampleFragment());
+                    ft.commit();
+                    check=false;
+                    btnF.setText("Load Second");
+                }
+                else {
+                    //fragment manage garna frag manager
+                    FragmentManager fm = getSupportFragmentManager();
+                    //fragment lyaudai rakhdai garna transaction.
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.fragHolder, new SecondFragment());
+                    ft.commit();
+                    check =true;
+                    btnF.setText("Load First");
+                }
+
             }
         });
 
-        btnS.setOnClickListener(new View.OnClickListener() {
+        /*btnS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //fragment manage garna frag manager
@@ -46,6 +64,6 @@ public class FragmentActivity extends AppCompatActivity {
                 ft.replace(R.id.fragHolder, new SecondFragment());
                 ft.commit();
             }
-        });
+        });*/
     }
 }
