@@ -1,10 +1,12 @@
 package com.example.secondweekassignment.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,9 +20,11 @@ import java.util.List;
 public class MyRvFoodAdapter extends RecyclerView.Adapter<MyRvFoodAdapter.MyHolder> {
 
     List<Food> foodList = new ArrayList<>();
+    private Context context;
 
-    public MyRvFoodAdapter(List<Food> foodList) {
+    public MyRvFoodAdapter(List<Food> foodList, Context context) {
         this.foodList = foodList;
+        this.context = context;
     }
 
     @NonNull
@@ -36,13 +40,20 @@ public class MyRvFoodAdapter extends RecyclerView.Adapter<MyRvFoodAdapter.MyHold
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         //data bind garne after view is created
-        Food food = foodList.get(position);
+        final Food food = foodList.get(position);
 
         holder.imageView.setImageResource(food.getImg());
         holder.tvName.setText(food.getName());
         holder.tvCategory.setText(food.getCategory());
         holder.tvRate.setText(food.getRate());
+        //holder.imageView.setImageResource(food.getImg());
 
+        holder.tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, food.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

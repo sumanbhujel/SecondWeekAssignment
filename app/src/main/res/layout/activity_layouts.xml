@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:gravity="center"
     android:orientation="vertical"
@@ -76,5 +81,13 @@
         style="@style/btn_Style"
         android:background="@drawable/btn_background"
         android:text="Recycler View"/>
+    <Button
+        android:id="@+id/btnFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/btn_Style"
+        android:background="@drawable/btn_background"
+        android:text="Fragment Activity"/>
 
 </LinearLayout>
+</ScrollView>
