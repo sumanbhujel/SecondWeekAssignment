@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuOuter"
+        android:icon="@drawable/first_icon"
+        android:title="@string/outer_menu"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menuFirst"
+        android:title="@string/first" />
+    <item
+        android:id="@+id/menuSecond"
+        android:title="@string/second">
+        <menu>
+            <item
+                android:id="@+id/sub1"
+                android:title="@string/sub_one" />
+
+            <item
+                android:id="@+id/sub2"
+                android:title="@string/sub_two" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,93 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <LinearLayout android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:text="Various Layouts" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnLl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Linear Layout"/>
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="@string/various_layouts"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnGl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Grid Layout"/>
+        <Button
+            android:id="@+id/btnLl"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/linear_layout" />
 
-    <Button
-        android:id="@+id/btnRl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Relative Layout"/>
+        <Button
+            android:id="@+id/btnGl"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/grid_layout" />
 
-    <Button
-        android:id="@+id/btnCl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Constraint Layout"/>
+        <Button
+            android:id="@+id/btnRl"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/relative_layout" />
 
-    <Button
-        android:id="@+id/btnTl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Table Layout"/>
+        <Button
+            android:id="@+id/btnCl"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/constraint_layout" />
 
-    <Button
-        android:id="@+id/btnFl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Frame Layout"/>
-    <Button
-        android:id="@+id/btnForm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Basic Form"/>
-    <Button
-        android:id="@+id/btnRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Recycler View"/>
-    <Button
-        android:id="@+id/btnFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btn_Style"
-        android:background="@drawable/btn_background"
-        android:text="Fragment Activity"/>
+        <Button
+            android:id="@+id/btnTl"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/table_layout" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnFl"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/frame_layout" />
+
+        <Button
+            android:id="@+id/btnForm"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/basic_form" />
+
+        <Button
+            android:id="@+id/btnRecyclerView"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/recycler_view" />
+
+        <Button
+            android:id="@+id/btnFragment"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/fragment_activity" />
+
+        <Button
+            android:id="@+id/btnTool"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/toolbar_activity" />
+
+    </LinearLayout>
 </ScrollView>

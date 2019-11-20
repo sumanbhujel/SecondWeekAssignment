@@ -11,7 +11,7 @@ import android.widget.Button;
 public class LayoutsActivity extends AppCompatActivity implements View.OnClickListener {
 
     //object
-    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl, btnForm, btnRv, btnFrag;
+    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl, btnForm, btnRv, btnFrag, btnTb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnForm = findViewById(R.id.btnForm);
         btnRv = findViewById(R.id.btnRecyclerView);
         btnFrag = findViewById(R.id.btnFragment);
+        btnTb = findViewById(R.id.btnTool);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -38,6 +39,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnForm.setOnClickListener(this);
         btnRv.setOnClickListener(this);
         btnFrag.setOnClickListener(this);
+        btnTb.setOnClickListener(this);
 
     }
 
@@ -79,6 +81,10 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view.getId() == R.id.btnFragment){
             Intent intent = new Intent(this, FragmentActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.btnTool){
+            Intent intent = new Intent(this, ToolbarActivity.class);
             startActivity(intent);
         }
     }
