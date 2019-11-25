@@ -100,5 +100,13 @@
             android:background="@drawable/btn_background"
             android:text="@string/toolbar_activity" />
 
+        <Button
+            android:id="@+id/btnFile"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="@string/file_activity" />
+
     </LinearLayout>
 </ScrollView>

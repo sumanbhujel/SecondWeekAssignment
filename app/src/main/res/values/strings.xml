@@ -23,5 +23,6 @@
     <string name="recycler_view">Recycler View</string>
     <string name="fragment_activity">Fragment Activity</string>
     <string name="toolbar_activity">ToolBar Activity</string>
+    <string name="file_activity">File Activity</string>
 
 </resources>

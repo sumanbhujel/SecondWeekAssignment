@@ -11,7 +11,8 @@ import android.widget.Button;
 public class LayoutsActivity extends AppCompatActivity implements View.OnClickListener {
 
     //object
-    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,buttonFl, btnForm, btnRv, btnFrag, btnTb;
+    Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,
+            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnRv = findViewById(R.id.btnRecyclerView);
         btnFrag = findViewById(R.id.btnFragment);
         btnTb = findViewById(R.id.btnTool);
+        btnFa = findViewById(R.id.btnFile);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -40,6 +42,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnRv.setOnClickListener(this);
         btnFrag.setOnClickListener(this);
         btnTb.setOnClickListener(this);
+        btnFa.setOnClickListener(this);
 
     }
 
@@ -85,6 +88,10 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view.getId() == R.id.btnTool){
             Intent intent = new Intent(this, ToolbarActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.btnFile){
+            Intent intent = new Intent(this, FileActivity.class);
             startActivity(intent);
         }
     }
