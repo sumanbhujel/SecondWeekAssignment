@@ -24,5 +24,6 @@
     <string name="fragment_activity">Fragment Activity</string>
     <string name="toolbar_activity">ToolBar Activity</string>
     <string name="file_activity">File Activity</string>
+    <string name="shared_pre_activity">Shared Preferences</string>
 
 </resources>

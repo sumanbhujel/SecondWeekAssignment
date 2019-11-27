@@ -146,10 +146,10 @@ public class FileActivity extends AppCompatActivity {
             try {
                 File myDir = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "Mytemp");
                 myDir.mkdir();
-                File myFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS),"mytemp/my_file.txt");
+                File myFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS),"Mytemp/newfile.txt");
 
                 myFile.createNewFile();
-                FileOutputStream fos = new FileOutputStream(myDir);
+                FileOutputStream fos = new FileOutputStream(myFile);
                 fos.write(data.getBytes());
                 editText.getText().clear();
                 Toast.makeText(this, "Saved to" + myDir, Toast.LENGTH_SHORT).show();

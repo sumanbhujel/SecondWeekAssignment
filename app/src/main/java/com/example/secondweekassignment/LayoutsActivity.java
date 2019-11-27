@@ -12,7 +12,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
 
     //object
     Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,
-            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa;
+            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa, btnSPa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnFrag = findViewById(R.id.btnFragment);
         btnTb = findViewById(R.id.btnTool);
         btnFa = findViewById(R.id.btnFile);
+        btnSPa = findViewById(R.id.btnSPA);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -43,6 +44,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnFrag.setOnClickListener(this);
         btnTb.setOnClickListener(this);
         btnFa.setOnClickListener(this);
+        btnSPa.setOnClickListener(this);
 
     }
 
@@ -92,6 +94,10 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view.getId() == R.id.btnFile){
             Intent intent = new Intent(this, FileActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.btnSPA){
+            Intent intent = new Intent(this, SharedPreActivity.class);
             startActivity(intent);
         }
     }
