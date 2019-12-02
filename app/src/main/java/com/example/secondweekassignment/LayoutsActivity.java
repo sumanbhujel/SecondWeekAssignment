@@ -12,7 +12,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
 
     //object
     Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,
-            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa, btnSPa;
+            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa, btnSPa, btnImp, btnShuf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,8 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnTb = findViewById(R.id.btnTool);
         btnFa = findViewById(R.id.btnFile);
         btnSPa = findViewById(R.id.btnSPA);
+        btnImp = findViewById(R.id.buttonImpIntent);
+        btnShuf = findViewById(R.id.buttonShuffleWord);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -45,6 +47,8 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnTb.setOnClickListener(this);
         btnFa.setOnClickListener(this);
         btnSPa.setOnClickListener(this);
+        btnImp.setOnClickListener(this);
+        btnShuf.setOnClickListener(this);
 
     }
 
@@ -98,6 +102,14 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view.getId() == R.id.btnSPA){
             Intent intent = new Intent(this, SharedPreActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.buttonImpIntent){
+            Intent intent = new Intent(this, ImplicitIntentActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.buttonShuffleWord){
+            Intent intent = new Intent(this, ShuffleWordActivity.class);
             startActivity(intent);
         }
     }
