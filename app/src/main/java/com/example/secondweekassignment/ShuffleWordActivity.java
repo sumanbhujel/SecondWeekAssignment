@@ -2,6 +2,7 @@ package com.example.secondweekassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +22,10 @@ public class ShuffleWordActivity extends AppCompatActivity {
     ListView listView;
     TextView textView;
     Button btnClear, btnCheck;
-    boolean check = false;
+    //boolean check = false;
+    int level = 0;
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
 
 
     @Override
@@ -35,21 +39,14 @@ public class ShuffleWordActivity extends AppCompatActivity {
         btnClear = findViewById(R.id.buttonClear);
         listView = findViewById(R.id.wordList);
 
-        int i = 0;
-        Character[] word = shuffleWord(words[i]);
-        ArrayAdapter<Character> adapter = new ArrayAdapter<Character>(ShuffleWordActivity.this,
-                R.layout.spinner_values, word);
-        listView.setAdapter(adapter);
-        //Toast.makeText(this, shuffleWord(), Toast.LENGTH_SHORT).show();
+        sp = getApplicationContext().getSharedPreferences("myword", MODE_PRIVATE);
+        editor = sp.edit();
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Character selectedItem = (Character) adapterView.getItemAtPosition(i);
-                String selectWord = String.valueOf(selectedItem);
-                textView.append(selectWord);
-            }
-        });
+        int lastlevel = sp.getInt("level", 0);
+        level = lastlevel;
+
+        showWord(level);
+
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +61,19 @@ public class ShuffleWordActivity extends AppCompatActivity {
 
                 String w = textView.getText().toString();
 
-                for (int y=0;y<words.length;y++){
+                if (w.equals(words[level])) {
+                    level++;
+                    showWord(level);
+                    textView.setText("");
+
+                    editor.putInt("level", level);
+                    editor.commit();
+                } else {
+                    Toast.makeText(ShuffleWordActivity.this, "Not Matched", Toast.LENGTH_SHORT).show();
+
+                }
+
+                /*for (int y=0;y<words.length;y++){
                     if (words[y] == w) {
                         check = true;
                         break;
@@ -80,7 +89,7 @@ public class ShuffleWordActivity extends AppCompatActivity {
                     //false
                     Toast.makeText(ShuffleWordActivity.this, w+" is Not Matched",
                             Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
 
             }
@@ -88,6 +97,24 @@ public class ShuffleWordActivity extends AppCompatActivity {
 
     }
 
+    public void showWord(int i) {
+
+        Character[] word = shuffleWord(words[i]);
+        ArrayAdapter<Character> adapter = new ArrayAdapter<Character>(ShuffleWordActivity.this,
+                R.layout.spinner_values, word);
+        listView.setAdapter(adapter);
+        //Toast.makeText(this, shuffleWord(), Toast.LENGTH_SHORT).show();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedItem = adapterView.getItemAtPosition(i).toString();
+                textView.append(selectedItem);
+            }
+        });
+
+
+    }
 
 
     private Character[] shuffleWord(String word) {

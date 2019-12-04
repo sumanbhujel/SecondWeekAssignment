@@ -12,7 +12,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
 
     //object
     Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,
-            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa, btnSPa, btnImp, btnShuf;
+            buttonFl, btnForm, btnRv, btnFrag, btnTb, btnFa, btnSPa, btnImp, btnShuf, btnDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnSPa = findViewById(R.id.btnSPA);
         btnImp = findViewById(R.id.buttonImpIntent);
         btnShuf = findViewById(R.id.buttonShuffleWord);
+        btnDb =findViewById(R.id.buttonDatabase);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -49,6 +50,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnSPa.setOnClickListener(this);
         btnImp.setOnClickListener(this);
         btnShuf.setOnClickListener(this);
+        btnDb.setOnClickListener(this);
 
     }
 
@@ -110,6 +112,10 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view.getId() == R.id.buttonShuffleWord){
             Intent intent = new Intent(this, ShuffleWordActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.buttonDatabase){
+            Intent intent = new Intent(this, DatabaseActivity.class);
             startActivity(intent);
         }
     }
