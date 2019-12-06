@@ -25,5 +25,10 @@
     <string name="toolbar_activity">ToolBar Activity</string>
     <string name="file_activity">File Activity</string>
     <string name="shared_pre_activity">Shared Preferences</string>
+    <string name="registration_form">Registration Form</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="add">ADD</string>
 
 </resources>

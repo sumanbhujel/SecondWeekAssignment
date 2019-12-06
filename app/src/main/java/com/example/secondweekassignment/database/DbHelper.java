@@ -1,11 +1,19 @@
 package com.example.secondweekassignment.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import com.example.secondweekassignment.model.Student;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.secondweekassignment.model.Student.TBL_CREATE;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -13,7 +21,6 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "mydb";
     private static final int DB_VERSION = 1;
 
-    String tbl_create = "CREATE TABLE students (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT,phone TEXT)";
 
     public DbHelper(@Nullable Context context) {
 
@@ -22,7 +29,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(tbl_create);
+        sqLiteDatabase.execSQL(TBL_CREATE);
 
 
     }
@@ -32,15 +39,33 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addStudent(){
+    public boolean addStudent(Student student) {
         try {
             SQLiteDatabase db = getWritableDatabase();
-            db.execSQL("INSERT INTO students (name, email, phone) VALUES ('Suman','suman@gmail.com','9823171680')");
+            db.execSQL("INSERT INTO students (name, email, phone) VALUES ('" + student.getName() + "','" + student.getEmail() + "','" + student.getPhone() + "')");
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Log.d("DBEx", e.toString());
             return false;
         }
+    }
+
+    public List<Student> getStudents() {
+        List<Student> studentList = new ArrayList<>();
+        try {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM students", null);
+
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    studentList.add(new Student(cursor.getInt(0), cursor.getString(1),
+                            cursor.getString(2), cursor.getString(3)));
+                }
+            }
+
+        } catch (Exception e) {
+            Log.d("DBEx", e.toString());
+        }
+        return studentList;
     }
 }
