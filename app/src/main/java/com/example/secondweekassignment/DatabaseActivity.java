@@ -2,6 +2,7 @@ package com.example.secondweekassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,7 +19,7 @@ import java.util.List;
 public class DatabaseActivity extends AppCompatActivity {
 
     EditText editTextN, editTextE, editTextP;
-    Button buttonAdd;
+    Button buttonAdd, buttonShow;
     DbHelper dbHelper;
 
 
@@ -31,6 +32,7 @@ public class DatabaseActivity extends AppCompatActivity {
         editTextE = findViewById(R.id.edEmail);
         editTextP = findViewById(R.id.edPhone);
         buttonAdd = findViewById(R.id.btnAdd);
+        buttonShow = findViewById(R.id.btnShow);
 
         dbHelper = new DbHelper(this);
 
@@ -49,6 +51,16 @@ public class DatabaseActivity extends AppCompatActivity {
                     editTextE.setText("");
                     editTextP.setText("");
                 }
+            }
+        });
+
+        buttonShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DatabaseActivity.this, ShowStudentActivity.class);
+
+
+                startActivity(intent);
             }
         });
 
