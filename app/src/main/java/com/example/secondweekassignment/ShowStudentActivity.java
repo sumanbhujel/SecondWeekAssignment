@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.secondweekassignment.adapter.StudentAdapter;
 import com.example.secondweekassignment.database.DbHelper;
@@ -20,6 +21,7 @@ public class ShowStudentActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DbHelper dbHelper;
+    Button buttonEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class ShowStudentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_student);
 
         dbHelper = new DbHelper(this);
+        recyclerView = findViewById(R.id.viewStudent);
 
 
         List<Student> students = dbHelper.getStudents();

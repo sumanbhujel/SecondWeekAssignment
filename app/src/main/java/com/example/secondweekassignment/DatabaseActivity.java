@@ -58,8 +58,6 @@ public class DatabaseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DatabaseActivity.this, ShowStudentActivity.class);
-
-
                 startActivity(intent);
             }
         });
