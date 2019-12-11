@@ -1,24 +1,34 @@
 package com.example.secondweekassignment.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secondweekassignment.R;
+import com.example.secondweekassignment.UpdateActivity;
+import com.example.secondweekassignment.database.DbHelper;
 import com.example.secondweekassignment.model.Student;
 
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder> {
 
+    Context c;
     List<Student> studentList;
 
-    public StudentAdapter(List<Student> studentList) {
+
+    public StudentAdapter(Context c, List<Student> studentList) {
+        this.c = c;
         this.studentList = studentList;
     }
 
@@ -32,13 +42,38 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
         final Student student = studentList.get(position);
         holder.tName.setText(student.getName());
         holder.tEmail.setText(student.getEmail());
         holder.tPhone.setText(student.getPhone());
         holder.imageView.setImageResource(R.drawable.bird);
+        holder.buttonEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(c, UpdateActivity.class);
+                intent.putExtra("id", student.getId());
+                intent.putExtra("name", student.getName());
+                intent.putExtra("email", student.getEmail());
+                intent.putExtra("phone", student.getPhone());
 
+                c.startActivity(intent);
+
+            }
+        });
+
+        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DbHelper dbHelper = new DbHelper(c);
+                if (dbHelper.deleteData(student)){
+                    studentList.remove(student);
+                    notifyItemRemoved(position);
+                    Toast.makeText(c, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
     }
 
@@ -51,6 +86,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
 
         ImageView imageView;
         TextView tName, tEmail, tPhone;
+        Button buttonEdit, buttonDelete;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +94,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyHolder
             tName = itemView.findViewById(R.id.textName);
             tEmail = itemView.findViewById(R.id.textEmail);
             tPhone = itemView.findViewById(R.id.textPhone);
+            buttonDelete = itemView.findViewById(R.id.btnDelete);
+            buttonEdit = itemView.findViewById(R.id.btnEdit);
 
         }
     }

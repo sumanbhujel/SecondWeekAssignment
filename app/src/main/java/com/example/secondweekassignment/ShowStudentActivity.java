@@ -21,7 +21,8 @@ public class ShowStudentActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DbHelper dbHelper;
-    Button buttonEdit;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class ShowStudentActivity extends AppCompatActivity {
 
         List<Student> students = dbHelper.getStudents();
 
-        StudentAdapter studentAdapter = new StudentAdapter(students);
+        StudentAdapter studentAdapter = new StudentAdapter(this,students);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(studentAdapter);

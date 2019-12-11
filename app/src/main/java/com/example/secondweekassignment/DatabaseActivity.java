@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 import com.example.secondweekassignment.database.DbHelper;
 import com.example.secondweekassignment.model.Student;
 
-import java.util.List;
 
 public class DatabaseActivity extends AppCompatActivity {
 
@@ -35,7 +33,29 @@ public class DatabaseActivity extends AppCompatActivity {
         buttonShow = findViewById(R.id.btnShow);
 
         dbHelper = new DbHelper(this);
+        addData();
 
+
+        buttonShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DatabaseActivity.this, ShowStudentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*List<Student> students = dbHelper.getStudents();
+        for(Student student:students){
+            Log.d("ID : ",String.valueOf(student.getId()));
+            Log.d("Name: ",student.getName());
+            Log.d("Email: ",student.getEmail());
+            Log.d("Phone: ",student.getPhone());
+
+        }*/
+
+    }
+
+    public void addData() {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,24 +73,6 @@ public class DatabaseActivity extends AppCompatActivity {
                 }
             }
         });
-
-        buttonShow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DatabaseActivity.this, ShowStudentActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        List<Student> students = dbHelper.getStudents();
-        for(Student student:students){
-            Log.d("ID : ",String.valueOf(student.getId()));
-            Log.d("Name: ",student.getName());
-            Log.d("Email: ",student.getEmail());
-            Log.d("Phone: ",student.getPhone());
-
-        }
-
 
     }
 }

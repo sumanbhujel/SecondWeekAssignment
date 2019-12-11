@@ -30,5 +30,8 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="add">ADD</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="user_profile">User Profile</string>
 
 </resources>

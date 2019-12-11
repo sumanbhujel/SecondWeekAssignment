@@ -50,6 +50,30 @@ public class DbHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean updateStudent(Student student) {
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            db.execSQL("UPDATE students SET name = '" + student.getName() + "', email = '" + student.getEmail() + "', phone = '" + student.getPhone() + "' WHERE id='" + student.getId() + "' ");
+
+            return true;
+        } catch (Exception e) {
+            Log.d("DBUpdateEx", e.toString());
+            return false;
+        }
+    }
+
+    public boolean deleteData(Student student) {
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            db.execSQL("DELETE FROM students WHERE id='" + student.getId() + "' ");
+            return true;
+        } catch (Exception e) {
+            Log.d("DBDeleteEx", e.toString());
+            return false;
+        }
+
+    }
+
     public List<Student> getStudents() {
         List<Student> studentList = new ArrayList<>();
         try {
