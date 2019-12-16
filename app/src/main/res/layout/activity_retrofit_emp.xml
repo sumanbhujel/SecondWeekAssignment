@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RetrofitEmpActivity">
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Employee Registration"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textAllCaps="true" />
+
+    <EditText
+        android:id="@+id/empName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Employee Name" />
+
+    <EditText
+        android:id="@+id/empSalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Employee Salary" />
+
+    <EditText
+        android:id="@+id/empAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Employee Age" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"/>
+
+    <TextView
+        android:id="@+id/showEmp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Show Employee List"/>
+
+
+
+</LinearLayout>

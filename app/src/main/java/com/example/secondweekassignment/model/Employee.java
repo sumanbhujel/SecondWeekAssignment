@@ -1,22 +1,31 @@
 package com.example.secondweekassignment.model;
 
-public class Employee {
-    private int id, employee_age;
-    private String employee_name;
-    private double employee_salary;
+import com.google.gson.annotations.SerializedName;
 
-    public Employee(int id, int employee_age, String employee_name, double employee_salary) {
+public class Employee {
+    private int id;
+
+    @SerializedName("name") //serailize name annotation
+    private String employee_name;
+
+    @SerializedName("salary")
+    private String employee_salary;
+
+    @SerializedName("age")
+    private String employee_age;
+
+    public Employee(int id, String employee_name, String employee_salary, String employee_age) {
         this.id = id;
-        this.employee_age = employee_age;
         this.employee_name = employee_name;
         this.employee_salary = employee_salary;
+        this.employee_age = employee_age;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getEmployee_age() {
+    public String getEmployee_age() {
         return employee_age;
     }
 
@@ -24,7 +33,7 @@ public class Employee {
         return employee_name;
     }
 
-    public double getEmployee_salary() {
+    public String getEmployee_salary() {
         return employee_salary;
     }
 }

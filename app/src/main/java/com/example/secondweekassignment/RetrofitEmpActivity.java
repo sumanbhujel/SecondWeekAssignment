@@ -4,6 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.secondweekassignment.api.EmployeeInterface;
 import com.example.secondweekassignment.model.Employee;
@@ -17,20 +22,67 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitEmpActivity extends AppCompatActivity {
+    TextView textView;
+    EditText etName, etSalary, etAge;
+    Button btnAdd;
+    Retrofit retrofit;
+    EmployeeInterface empInter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit_emp);
 
+        textView = findViewById(R.id.showEmp);
+        etName = findViewById(R.id.empName);
+        etSalary = findViewById(R.id.empSalary);
+        etAge = findViewById(R.id.empAge);
+        btnAdd = findViewById(R.id.addButton);
+
+        getInstance();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = etName.getText().toString();
+                String salary = etSalary.getText().toString();
+                String age = etAge.getText().toString();
+
+                Employee emp = new Employee(0, name, salary,age);
+                addEmployee(emp);
+            }
+        });
+
+    }
+
+    private void getInstance() {
+
         //retrofit ko object banako
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl("http://dummy.restapiexample.com/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
-
         //interface ko object banako through retrofit
-        EmployeeInterface empInter = retrofit.create(EmployeeInterface.class);
+        empInter = retrofit.create(EmployeeInterface.class);
+    }
 
+    private void showEmployeeById() {
 
+        Call<Employee> employee = empInter.getEmployeeById(1);
+
+        employee.enqueue(new Callback<Employee>() {
+            @Override
+            public void onResponse(Call<Employee> call, Response<Employee> response) {
+                Toast.makeText(RetrofitEmpActivity.this, response.body().getEmployee_name(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Employee> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getAllEmployees() {
         Call<List<Employee>> employeeList = empInter.getEmps();
 
         //enqueue is used for extract call type object
@@ -48,8 +100,26 @@ public class RetrofitEmpActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Employee>> call, Throwable t) {
                 Log.d("ApiEx", t.getMessage());
+            }
+        });
+    }
+
+    private void addEmployee(Employee employee){
+
+        Call<Void> empAdd = empInter.addEmployee(employee);
+
+        empAdd.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(RetrofitEmpActivity.this, "Added", Toast.LENGTH_SHORT).show();
+    
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
 
             }
         });
+
     }
 }
