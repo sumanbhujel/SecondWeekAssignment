@@ -13,7 +13,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
     //object
     Button buttonLl, buttonGl, buttonRl, buttonCl, buttonTl,
             buttonFl, btnForm, btnRv, btnFrag, btnTb,
-            btnFa, btnSPa, btnImp, btnShuf, btnDb, btnRetro;
+            btnFa, btnSPa, btnImp, btnShuf, btnDb, btnRetro, btnFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnShuf = findViewById(R.id.buttonShuffleWord);
         btnDb =findViewById(R.id.buttonDatabase);
         btnRetro = findViewById(R.id.buttonRetrofit);
+        btnFlag = findViewById(R.id.buttonFlag);
 
         buttonFl.setOnClickListener(this);
         buttonTl.setOnClickListener(this);
@@ -54,6 +55,7 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         btnShuf.setOnClickListener(this);
         btnDb.setOnClickListener(this);
         btnRetro.setOnClickListener(this);
+        btnFlag.setOnClickListener(this);
 
     }
 
@@ -123,6 +125,10 @@ public class LayoutsActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view.getId() == R.id.buttonRetrofit){
             Intent intent = new Intent(this, RetrofitEmpActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.buttonFlag){
+            Intent intent = new Intent(this, FlagAppActivity.class);
             startActivity(intent);
         }
     }

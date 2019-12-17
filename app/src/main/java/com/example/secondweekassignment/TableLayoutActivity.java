@@ -37,7 +37,7 @@ public class TableLayoutActivity extends AppCompatActivity
     //CalendarView calendarView;
     Button btnSubmit, btnView;
     String name, gender, dob, phone, email, country;
-    String[] countries = {"Select Country", "Nepal", "India", "Sri Lanka", "Bhutan", "Pakistan", "Afghanistan", "Maldives"};
+    String[] countries = {"Select Flag", "Nepal", "India", "Sri Lanka", "Bhutan", "Pakistan", "Afghanistan", "Maldives"};
 
     //userdefined datatype = class
     List<User> userList = new ArrayList<>();
@@ -121,7 +121,7 @@ public class TableLayoutActivity extends AppCompatActivity
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(TableLayoutActivity.this, "Please Select Country", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TableLayoutActivity.this, "Please Select Flag", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -155,7 +155,7 @@ public class TableLayoutActivity extends AppCompatActivity
             /*for (User user : userList) {
                 Log.d("Name: ", user.getName());
                 Log.d("Gender: ", user.getGender());
-                Log.d("Country: ", user.getCountry());
+                Log.d("Flag: ", user.getCountry());
                 Log.d("Date of Birth: ", user.getDob());
                 Log.d("Email: ", user.getEmail());
                 Log.d("Phone: ", user.getPhone());
@@ -193,8 +193,8 @@ public class TableLayoutActivity extends AppCompatActivity
             return false;
         }
 
-        if (spinner.getSelectedItem().toString().trim().equals("Select Country")) {
-            Toast.makeText(this, "Please Select Country", Toast.LENGTH_SHORT).show();
+        if (spinner.getSelectedItem().toString().trim().equals("Select Flag")) {
+            Toast.makeText(this, "Please Select Flag", Toast.LENGTH_SHORT).show();
             spinner.setFocusable(true);
             return false;
         }

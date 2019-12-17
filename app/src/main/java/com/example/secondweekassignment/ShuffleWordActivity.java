@@ -1,7 +1,5 @@
 package com.example.secondweekassignment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -99,8 +98,8 @@ public class ShuffleWordActivity extends AppCompatActivity {
 
     public void showWord(int i) {
 
-        Character[] word = shuffleWord(words[i]);
-        ArrayAdapter<Character> adapter = new ArrayAdapter<Character>(ShuffleWordActivity.this,
+        final Character[] word = shuffleWord(words[i]);
+        final ArrayAdapter<Character> adapter = new ArrayAdapter<Character>(ShuffleWordActivity.this,
                 R.layout.spinner_values, word);
         listView.setAdapter(adapter);
         //Toast.makeText(this, shuffleWord(), Toast.LENGTH_SHORT).show();
@@ -110,10 +109,9 @@ public class ShuffleWordActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedItem = adapterView.getItemAtPosition(i).toString();
                 textView.append(selectedItem);
+                //adapter.remove(selectedItem);
             }
         });
-
-
     }
 
 

@@ -32,7 +32,7 @@ public class UserDetailActivity extends AppCompatActivity {
         tvN.setText("Name:"+n);
         tvG.setText("Gender:"+g);
         tvD.setText("Date:"+d);
-        tvC.setText("Country:"+c);
+        tvC.setText("Flag:"+c);
         tvE.setText("Email:"+e);
         tvP.setText("Phone:"+p);
 

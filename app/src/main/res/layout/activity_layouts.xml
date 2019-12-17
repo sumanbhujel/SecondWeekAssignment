@@ -107,6 +107,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_background"
             android:text="@string/file_activity" />
+
         <Button
             android:id="@+id/btnSPA"
             style="@style/btn_Style"
@@ -146,6 +147,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_background"
             android:text="Retrofit Activity" />
+
+        <Button
+            android:id="@+id/buttonFlag"
+            style="@style/btn_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:text="FlagApp Activity" />
 
 
     </LinearLayout>

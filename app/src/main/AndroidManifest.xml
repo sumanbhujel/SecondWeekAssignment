@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -16,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RetrofitEmpActivity"></activity>
+        <activity android:name=".FlagAppActivity">
+        </activity>
+        <activity android:name=".RetrofitEmpActivity" />
         <activity android:name=".UpdateActivity" />
         <activity android:name=".ShowStudentActivity" />
         <activity android:name=".DatabaseActivity" />
@@ -39,6 +40,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".ShowActivity" />
         <activity android:name=".RegdataActivity" />

@@ -49,8 +49,9 @@ public class RetrofitEmpActivity extends AppCompatActivity {
                 String salary = etSalary.getText().toString();
                 String age = etAge.getText().toString();
 
-                Employee emp = new Employee(0, name, salary,age);
-                addEmployee(emp);
+                Employee emp = new Employee(0, name, salary, age);
+                //addEmployee(emp);
+                updateEmployee(1,emp);
             }
         });
 
@@ -104,7 +105,7 @@ public class RetrofitEmpActivity extends AppCompatActivity {
         });
     }
 
-    private void addEmployee(Employee employee){
+    private void addEmployee(Employee employee) {
 
         Call<Void> empAdd = empInter.addEmployee(employee);
 
@@ -112,7 +113,7 @@ public class RetrofitEmpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Toast.makeText(RetrofitEmpActivity.this, "Added", Toast.LENGTH_SHORT).show();
-    
+
             }
 
             @Override
@@ -121,5 +122,23 @@ public class RetrofitEmpActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void updateEmployee(int id, Employee employee) {
+        
+        Call<Void> empUpdate = empInter.updateEmployee(id, employee);
+        
+        empUpdate.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(RetrofitEmpActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+
+            }
+        });
     }
 }
