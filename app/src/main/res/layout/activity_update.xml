@@ -30,13 +30,14 @@
         android:layout_height="wrap_content"
         android:hint="@string/enter_phone_number" />
 
-
     <Button
         android:id="@+id/btnUpdate"
         style="@style/formStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update" />
+
+
 
 
 </LinearLayout>

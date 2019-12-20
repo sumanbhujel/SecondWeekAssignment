@@ -86,6 +86,7 @@ public class DbHelper extends SQLiteOpenHelper {
                             cursor.getString(2), cursor.getString(3)));
                 }
             }
+            return studentList;
 
         } catch (Exception e) {
             Log.d("DBEx", e.toString());
