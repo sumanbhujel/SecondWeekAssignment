@@ -1,2 +1,2 @@
 # SecondWeekAssignment
-Second Week Assignment
+Class Assessment.
